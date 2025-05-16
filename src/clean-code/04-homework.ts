@@ -1,16 +1,10 @@
 (() => {
 
 
-    // Resolver sin la triple condicional dentro del if
-    // includes? arrays?
-    function isRedFruit( fruit: string ): boolean {
-        
-        if ( fruit === 'manzana' || fruit === 'cereza' || fruit === 'ciruela' ) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    function isRedFruit(fruit: string): boolean {
+    const redFruits = ['manzana', 'cereza', 'ciruela'];
+    return redFruits.includes(fruit);
+}
 
     // Simplificar esta función
     // switch? Object literal? validar posibles colores
