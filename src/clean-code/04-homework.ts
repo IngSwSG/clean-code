@@ -8,8 +8,8 @@
     // Simplificar esta función
     // switch? Object literal? validar posibles colores
     function getFruitsByColor( color: string ): string[] {
-
-       const fruitsByColor: Record<string, string[]> = {
+       
+        const fruitsByColor: Record<string, string[]> = {
          red:    ['manzana', 'fresa'],
          yellow: ['piña', 'banana'],
          purple: ['moras', 'uvas'],
