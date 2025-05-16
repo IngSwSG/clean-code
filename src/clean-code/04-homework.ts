@@ -1,75 +1,68 @@
 (() => {
 
+        //Lidibeth Morras Vivas C15324
+
 
     // Resolver sin la triple condicional dentro del if
     // includes? arrays?
-    function isRedFruit( fruit: string ): boolean {
-        
-        if ( fruit === 'manzana' || fruit === 'cereza' || fruit === 'ciruela' ) {
-            return true;
-        } else {
-            return false;
-        }
+
+
+       //Determina si una fruta es roja 
+    function isRedFruit(fruit: string): boolean {
+        const redFruits = ['manzana', 'cereza', 'ciruela'];
+        return redFruits.includes(fruit);
     }
+    
 
     // Simplificar esta función
     // switch? Object literal? validar posibles colores
-    function getFruitsByColor( color: string ): string[] {
+   // function getFruitsByColor( color: string ): string[] {
 
-        if ( color === 'red' ) {
-            return ['manzana','fresa'];
-        } else if ( color === 'yellow') {
-            return ['piña','banana'];
-        } else if ( color === 'purple') {
-            return ['moras','uvas']
-        } else {
-            throw Error('the color must be: red, yellow, purple');
-        }
-    }
+
+  //Devuelve las frutas de un color especifico
+    function getFruitsByColor(color: string): string[] {
+        const fruitsByColor: Record<string, string[]> = {
+            red: ['manzana', 'fresa'],
+            yellow: ['piña', 'banana'],
+            purple: ['moras', 'uvas'],
+        };
+
+        const fruits = fruitsByColor[color];
+        if (!fruits) throw new Error('the color must be: red, yellow, purple');
+
+        return fruits;
+    }    
+
 
     // Simplificar esta función
-    let isFirstStepWorking  = true;
-    let isSecondStepWorking = true;
-    let isThirdStepWorking  = true;
-    let isFourthStepWorking = true;
 
-    function workingSteps() {
-        if( isFirstStepWorking === true ) {
-            if( isSecondStepWorking === true ) {
-                if( isThirdStepWorking === true ) {
-                    if( isFourthStepWorking === true ) {
-                        return 'Working properly!';
-                    }
-                    else {
-                        return 'Fourth step broken.';
-                    }
-                }
-                else {
-                    return 'Third step broken.';
-                }
-            }
-            else {
-                return 'Second step broken.';
-            }
-        }
-        else {
-            return 'First step broken.';
-        }
+    const stepStatus = {
+        first: true,
+        second: true,
+        third: true,
+        fourth: true,
+    };
+
+
+   function checkSystemStatus(): string {
+        if (!stepStatus.first) return 'First step broken.';
+        if (!stepStatus.second) return 'Second step broken.';
+        if (!stepStatus.third) return 'Third step broken.';
+        if (!stepStatus.fourth) return 'Fourth step broken.';
+        return 'Working properly!';
     }
 
-
-    // isRedFruit
+// isRedFruit
     console.log({ isRedFruit: isRedFruit('cereza'), fruit: 'cereza' }); // true
-    console.log({ isRedFruit: isRedFruit('piña'), fruit: 'piña' }); // true
+    console.log({ isRedFruit: isRedFruit('piña'), fruit: 'piña' }); // false
 
-    //getFruitsByColor
-    console.log({ redFruits: getFruitsByColor('red') }); // ['manzana', 'fresa']
-    console.log({ yellowFruits: getFruitsByColor('yellow') }); // ['piña', 'banana']
-    console.log({ purpleFruits: getFruitsByColor('purple') }); // ['moras', 'uvas']
-    // console.log({ pinkFruits: getFruitsByColor('pink') }); // Error: the color must be: red, yellow, purple
+//getFruitsByColor    
+    console.log({ redFruits: getFruitsByColor('red') });
+    console.log({ yellowFruits: getFruitsByColor('yellow') });
+    console.log({ purpleFruits: getFruitsByColor('purple') });
+    // console.log({ pinkFruits: getFruitsByColor('pink') }); // Error
 
-    // workingSteps
-    console.log({ workingSteps: workingSteps() }); // Cambiar los valores de la línea 31 y esperar los resultados
-
+// workingSteps
+    console.log({ systemStatus: checkSystemStatus() });
 
 })();
