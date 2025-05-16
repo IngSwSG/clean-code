@@ -1,75 +1,48 @@
-(() => {
+//Norvin Alexander Montenegro Zamora C04995
+ (() => {
+  // Codigo corregido
+  function isRedFruit(fruitName: string): boolean {
+    const redFruits = ["manzana", "cereza", "ciruela"];
+    return redFruits.includes(fruitName);
+  }
 
-
-    // Resolver sin la triple condicional dentro del if
-    // includes? arrays?
-    function isRedFruit( fruit: string ): boolean {
-        
-        if ( fruit === 'manzana' || fruit === 'cereza' || fruit === 'ciruela' ) {
-            return true;
-        } else {
-            return false;
-        }
+  // Corrección de codigo
+  function getFruitsByColor(fruitColor: string): string[] {
+    switch (fruitColor) {
+      case "red":
+        return ["manzana", "fresa"];
+      case "yellow":
+        return ["piña", "banana"];
+      case "purple":
+        return ["moras", "uvas"];
+      default:
+        throw new Error("The color must be: red, yellow, purple");
     }
+  }
 
-    // Simplificar esta función
-    // switch? Object literal? validar posibles colores
-    function getFruitsByColor( color: string ): string[] {
+  // Simplificacion de la funcion
+  const isFirstStepWorking = true;
+  const isSecondStepWorking = true;
+  const isThirdStepWorking = true;
+  const isFourthStepWorking = true;
 
-        if ( color === 'red' ) {
-            return ['manzana','fresa'];
-        } else if ( color === 'yellow') {
-            return ['piña','banana'];
-        } else if ( color === 'purple') {
-            return ['moras','uvas']
-        } else {
-            throw Error('the color must be: red, yellow, purple');
-        }
-    }
+  // Funcion corregida
+  function workingSteps(): string {
+    if (!isFirstStepWorking) return "First step broken.";
+    if (!isSecondStepWorking) return "Second step broken.";
+    if (!isThirdStepWorking) return "Third step broken.";
+    if (!isFourthStepWorking) return "Fourth step broken.";
+    return "Working properly!";
+  }
 
-    // Simplificar esta función
-    let isFirstStepWorking  = true;
-    let isSecondStepWorking = true;
-    let isThirdStepWorking  = true;
-    let isFourthStepWorking = true;
+  // Pruebas con el cambio sugerido de la linea 31 y demas
+  console.log({ isRedFruit: isRedFruit("cereza"), fruitName: "cereza" }); // true
+  console.log({ isRedFruit: isRedFruit("piña"), fruitName: "piña" }); // false
 
-    function workingSteps() {
-        if( isFirstStepWorking === true ) {
-            if( isSecondStepWorking === true ) {
-                if( isThirdStepWorking === true ) {
-                    if( isFourthStepWorking === true ) {
-                        return 'Working properly!';
-                    }
-                    else {
-                        return 'Fourth step broken.';
-                    }
-                }
-                else {
-                    return 'Third step broken.';
-                }
-            }
-            else {
-                return 'Second step broken.';
-            }
-        }
-        else {
-            return 'First step broken.';
-        }
-    }
+  console.log({ redFruits: getFruitsByColor("red") });
+  console.log({ yellowFruits: getFruitsByColor("yellow") });
+  console.log({ purpleFruits: getFruitsByColor("purple") });
+  // console.log({ pinkFruits: getFruitsByColor("pink") }); // Error
 
-
-    // isRedFruit
-    console.log({ isRedFruit: isRedFruit('cereza'), fruit: 'cereza' }); // true
-    console.log({ isRedFruit: isRedFruit('piña'), fruit: 'piña' }); // true
-
-    //getFruitsByColor
-    console.log({ redFruits: getFruitsByColor('red') }); // ['manzana', 'fresa']
-    console.log({ yellowFruits: getFruitsByColor('yellow') }); // ['piña', 'banana']
-    console.log({ purpleFruits: getFruitsByColor('purple') }); // ['moras', 'uvas']
-    // console.log({ pinkFruits: getFruitsByColor('pink') }); // Error: the color must be: red, yellow, purple
-
-    // workingSteps
-    console.log({ workingSteps: workingSteps() }); // Cambiar los valores de la línea 31 y esperar los resultados
-
-
+  console.log({ workingSteps: workingSteps() });
 })();
