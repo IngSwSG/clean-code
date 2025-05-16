@@ -3,6 +3,8 @@
 
     // Resolver sin la triple condicional dentro del if
     // includes? arrays?
+
+/*
     function isRedFruit( fruit: string ): boolean {
         
         if ( fruit === 'manzana' || fruit === 'cereza' || fruit === 'ciruela' ) {
@@ -11,9 +13,18 @@
             return false;
         }
     }
+*/
+
+    function isRedFruit(fruit: string): boolean {
+        const redFruits = ['manzana', 'cereza', 'ciruela'];
+        return redFruits.includes(fruit);
+    }
+
 
     // Simplificar esta función
     // switch? Object literal? validar posibles colores
+
+/*    
     function getFruitsByColor( color: string ): string[] {
 
         if ( color === 'red' ) {
@@ -26,6 +37,17 @@
             throw Error('the color must be: red, yellow, purple');
         }
     }
+*/
+
+    function getFruitsByColor(color: string): string[] {
+    switch (color) {
+        case 'red': return ['manzana', 'fresa'];
+        case 'yellow': return ['piña', 'banana'];
+        case 'purple': return ['moras', 'uvas'];
+        default: throw Error('The color must be: red, yellow, purple');
+    }
+}
+
 
     // Simplificar esta función
     let isFirstStepWorking  = true;
@@ -33,6 +55,7 @@
     let isThirdStepWorking  = true;
     let isFourthStepWorking = true;
 
+/*
     function workingSteps() {
         if( isFirstStepWorking === true ) {
             if( isSecondStepWorking === true ) {
@@ -56,6 +79,17 @@
             return 'First step broken.';
         }
     }
+*/
+
+    function workingSteps(): string {
+        if (!isFirstStepWorking)  return 'First step broken.';
+        if (!isSecondStepWorking) return 'Second step broken.';
+        if (!isThirdStepWorking)  return 'Third step broken.';
+        if (!isFourthStepWorking) return 'Fourth step broken.';
+    
+    return 'Working properly!';
+    }
+
 
 
     // isRedFruit
